@@ -1,14 +1,17 @@
-import Button from "../components/Button"
 import { useState } from "react";
+import Button from "../components/Button"
 
 import { arrowRight } from "../assets/icons";
 import { shoes, statistics } from "../constants";
-import { bigShoe1 } from "../assets/images";
+// import { bigShoe1 } from "../assets/images";
 import ShoeCard from "../components/ShoeCard";
 
 const Hero = () => {
 
-  const [bigShoeImg, setbigShoeImg] = useState(bigShoe1);
+  // const [bigShoeImg, setbigShoeImg] = useState(bigShoe1);
+  const [bigShoe, setbigShoe] = useState(0);
+
+  console.log(bigShoe);
 
   return (
     <section
@@ -42,21 +45,25 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
-        <img
-          src={bigShoeImg}
+      {/* justify-center */}
+      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center border-2 x-hidden">
+        {shoes.map((shoe, index) => (
+          <img
+          key={index}
+          src={shoe.bigShoe}
           alt="shoe collection"
           width={610}
           height={500}
-          className="object-contain relative z-10"
+          className={`object-contain relative z-10 block -translate-x-[${(bigShoe - 1) * 100}%] transition-all ${shoe.index === bigShoe ? "opacity-1" : "opacity-0"}`}
         />
+        ))}
         <div className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6">
           {shoes.map((shoe, index) => (
             <div key={index}>
               <ShoeCard
                 imgURL={shoe}
-                changeBigShoeImage={(shoe) => { setbigShoeImg(shoe) }}
-                bigShoeImg={bigShoeImg}
+                changeBigShoeImage={(shoe) => { setbigShoe(shoe) }}
+                bigShoeImg={bigShoe}
               />
             </div>
           ))}

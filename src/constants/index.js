@@ -12,14 +12,17 @@ export const shoes = [
     {
         thumbnail: thumbnailShoe1,
         bigShoe: bigShoe1,
+        index: 0
     },
     {
         thumbnail: thumbnailShoe2,
         bigShoe: bigShoe2,
+        index: 1
     },
     {
         thumbnail: thumbnailShoe3,
         bigShoe: bigShoe3,
+        index: 2
     },
 ];
 

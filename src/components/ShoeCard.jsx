@@ -3,15 +3,17 @@
 const ShoeCard = ({ imgURL, changeBigShoeImage, bigShoeImg}) => {
 
   const handleClick = () => {
-    if (bigShoeImg !== imgURL.bigShoe) {
-      changeBigShoeImage(imgURL.bigShoe);
-    }
+    // if (bigShoeImg !== imgURL.index) {
+    //   console.log(bigShoeImg)
+    //   changeBigShoeImage(imgURL.index);
+    // }
+    changeBigShoeImage(imgURL.index);
   }
 
   return (
     <div className={`border-2 rounded-xl 
         ${
-            bigShoeImg === imgURL.bigShoe ? 'border-coral-red' : 'border-transparent'
+            bigShoeImg === imgURL.index ? 'border-coral-red' : 'border-transparent'
         } cursor-pointer max-sm:flex-1
     `}
     onClick={handleClick}
